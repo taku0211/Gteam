@@ -12,10 +12,15 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 let weapon=document.getElementById("weapon");
-weapon.onclick = function() {
+let clickpoint = document.getElementById('clickpoint');
+weapon.onclick = function(){
     quantity[phase]+=click;
     point_dom.innerHTML = point;
+    setTimeout(function(){
+    clickpoint.style.display = "none";
+    }, 1000);
 }
+
 
 
 /*
