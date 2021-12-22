@@ -59,18 +59,33 @@ upgrade_button.addEventListener("click", function(){
     }
 });
 
+
 let clickpoint = document.getElementById('clickpoint');
 weapon.onclick = function() {
     quantity[phase]+=click;
     point_dom.innerHTML = point;
-    $('#clickpoint').fadeOut();
-    clickpoint.innerHTML = clickpoint;
-    setTimeout(function(){
-        clickpoint.style.display = "none";
-        $('#clickpoint').fadeOut();
-        }, 1000);
+    clickpoint.classList.remove('fadeout');
+    window.setTimeout(function(){
+        clickpoint.classList.add('fadeout');
+    }, 500);
 }
 
+document.querySelector( ".make" ).addEventListener( "click", function( event ) {
+	var clickX = event.pageX ;
+	var clickY = event.pageY ;
+
+	// 要素の位置を取得
+	var clientRect = this.getBoundingClientRect() ;
+	var positionX = clientRect.left + window.pageXOffset ;
+	var positionY = clientRect.top + window.pageYOffset ;
+
+	// 要素内におけるクリック位置を計算
+	var x = clickX - positionX ;
+	var y = clickY - positionY ;
+
+    clickpoint.style.top = y;
+    clickpoint.style.left = x;
+} ) ;
 
 
 
