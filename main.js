@@ -15,7 +15,6 @@ window.addEventListener("DOMContentLoaded", function () {
 let weapon=document.getElementById("weapon");
 weapon.onclick = function() {
     quantity[phase]+=click;
-    click++;
     point.innerHTML = point;
 }
 
