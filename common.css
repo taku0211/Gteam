@@ -84,12 +84,14 @@ font-size: large;
 
 .upgrade_box_1{
     display:flex;
-    margin:0 200 0 200;
-}
+    margin: 0 200 0 200;
+    gap:0 10px;
+}  
 
 .upgrade_box_2{
     display:flex;
     margin:0 200 0 200;
+    gap:0 10px;
 }
 
 /*-----------------------------------------------------*/
@@ -98,6 +100,16 @@ font-size: large;
 .hire{
     background-color: blue;
     text-align:center;
+}
+
+.hire img{
+    width:5%;
+    height:5%;
+}
+
+.hire_box{
+    display: flex;
+    margin:0 100 0 100;
 }
 
 /*-----------------------------------------------------*/
