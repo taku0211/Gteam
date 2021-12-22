@@ -2,7 +2,7 @@ let phase=0;    //フェーズ。何を今作っているか。例:0=ナイフ�
 let point=1;    
 let point_dom = document.getElementById("click");
 let click=1;
-let gold=5000;  //ここの値が初期の所持金になる
+let gold=105000;  //ここの値が初期の所持金になる
 
 /* アップグレードで使ったやつ -------------------------- */
 
