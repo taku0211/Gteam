@@ -5,12 +5,23 @@ window.addEventListener("DOMContentLoaded", function () {
     for(let i=0;i<5;i++){   //武器の個数を初期化
         quantity[i]=0;
     }
-    let count=document.getElementsById("count");
-    let count_int=quantity[0];
-    count.appendChild(count_int);
 });
 
 let weapon=document.getElementsById("weapon")
 weapon.onclick = function(phase,click) {
     quantity[phase]+=click;
 }
+
+/*
+quantitiy=武器の個数を管理するローカルストレージ
+[0]=ナイフの個数
+[1]=ロングソードの個数
+[2]=デュアルソードの個数
+[3]=刀の個数
+[4]=ファイアソードの個数
+[5]
+[6]
+[7]
+[8]
+[9]
+*/
