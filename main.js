@@ -1,7 +1,6 @@
 let phase=0;
 let point=1;
-let point = document.getElementById("click");
-let phase=0;
+let point_dom = document.getElementById("click");
 let click=1;
 
 window.addEventListener("DOMContentLoaded", function () {
@@ -9,13 +8,13 @@ window.addEventListener("DOMContentLoaded", function () {
     for(let i=0;i<5;i++){   //武器の個数を初期化
         quantity[i]=0;
     }
-    point.innerHTML = point;
+    point_dom.innerHTML = point;
 });
 
 let weapon=document.getElementById("weapon");
 weapon.onclick = function() {
     quantity[phase]+=click;
-    point.innerHTML = point;
+    point_dom.innerHTML = point;
 }
 
 
