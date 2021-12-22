@@ -63,9 +63,12 @@ let clickpoint = document.getElementById('clickpoint');
 weapon.onclick = function() {
     quantity[phase]+=click;
     point_dom.innerHTML = point;
+    $('#clickpoint').fadeOut();
+    clickpoint.innerHTML = clickpoint;
     setTimeout(function(){
-    clickpoint.style.display = "none";
-    }, 1000);
+        clickpoint.style.display = "none";
+        $('#clickpoint').fadeOut();
+        }, 1000);
 }
 
 
