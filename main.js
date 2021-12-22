@@ -2,7 +2,7 @@ let phase=0;
 let point=1;
 let point_dom = document.getElementById("click");
 let click=1;
-let gold=500;
+let gold=5000;
 
 let weapon=document.getElementById("weapon");
 const weapon_name = new Array("ナイフ", "ロングソード", "デュアルソード","刀","ファイアソード");
