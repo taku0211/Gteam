@@ -53,10 +53,18 @@ upgrade_button.addEventListener("click", function(){
     }
 });
 
+let weapon=document.getElementById("weapon");
+let clickpoint = document.getElementById('clickpoint');
 weapon.onclick = function() {
     quantity[phase]+=click;
     point_dom.innerHTML = point;
+    setTimeout(function(){
+    clickpoint.style.display = "none";
+    }, 1000);
 }
+
+
+
 
 /*
 quantitiy=武器の個数を管理するローカルストレージ
