@@ -11,6 +11,9 @@ body{
     display:flex;
 }
 
+#big{
+    font-size: 130%;
+}
 
 /* ---------------------------------------------------------- */
 /* 左画面 */
@@ -130,12 +133,54 @@ font-size: large;
 .hire_box{
     display: flex;
     margin:0 100 0 100;
+    gap:0 5px;
 }
 
 /*-----------------------------------------------------*/
-/*購入＆売却*/
+/*購入*/
 /*-----------------------------------------------------*/
-.sale{
+
+.buysell{
     background-color: green;
     text-align:center;
 }
+
+.buysell_box{
+    display: flex;
+    margin: 0;
+}
+
+.buy{
+    background-color: rgb(212, 176, 135);
+    width:100%;
+    color:rgb(0, 0, 0);
+}
+.buy_box{
+    background-color: rgb(212, 176, 135);
+    color:rgb(0, 0, 0);
+}
+.buy_box img{
+    margin:10;
+    width:19%;
+    height:19%;
+}
+.item1,.item2,.item3,.item4{
+    margin :10 40;
+    display: flex;
+    gap:0 5px;
+}
+
+.sell{
+    background-color: rgb(236, 175, 8);
+    width:100%;
+    color:rgb(0, 0, 0);   
+}
+.sell_box{
+    background-color: rgb(236, 175, 8);
+    color:rgb(0, 0, 0);
+    display: flex;
+}
+
+/*-----------------------------------------------------*/
+/*売却*/
+/*-----------------------------------------------------*/
