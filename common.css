@@ -11,12 +11,41 @@ body{
     display:flex;
 }
 
+
+/* ---------------------------------------------------------- */
+/* 左画面 */
+/* ---------------------------------------------------------- */
 .make{
     width: 100%;
     height:100%;
-    background-color: black;
+    background:linear-gradient(-135deg, #000000, #d80303);
+    text-align:center;
+}
+
+h1{
+    font-size: 200%;
     text-align: center;
 }
+
+#tukure{
+    font-size: 60px;
+    text-align: center;
+}
+
+#count{
+    font-size:40px;
+    text-align: center;
+}
+
+#weapon{
+    width:450px;
+    height:450px;
+    margin:0 auto;
+}
+
+/* ---------------------------------------------------------- */
+/* 右画面 */
+/* ---------------------------------------------------------- */
 
 
 .menu{
