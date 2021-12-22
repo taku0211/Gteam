@@ -16,3 +16,18 @@ weapon.onclick = function(phase,click) {
     click++;
     point.innerHTML = point;
 }
+
+
+/*
+quantitiy=武器の個数を管理するローカルストレージ
+[0]=ナイフの個数
+[1]=ロングソードの個数
+[2]=デュアルソードの個数
+[3]=刀の個数
+[4]=ファイアソードの個数
+[5]
+[6]
+[7]
+[8]
+[9]
+*/

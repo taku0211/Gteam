@@ -54,10 +54,33 @@ h1{
     background-color: rgb(81, 106, 128);
     text-align: center;
 }
+
+/*-----------------------------------------------------*/
+
 .upgrade{
-    background-color: red;
+    background-color: rgb(182, 104, 104);
     text-align:center;
 }
+
+#now_weapon_png{
+    width:100px;
+    height:100px;
+}
+
+#next_weapon_png{
+    width:100px;
+    height:100px;
+}
+
+.upgrade_box_1{
+    display:flex;
+}
+
+.upgrade_box_2{
+    display:flex;
+}
+
+/*-----------------------------------------------------*/
 
 .hire{
     background-color: blue;
