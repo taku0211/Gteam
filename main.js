@@ -1,6 +1,8 @@
 let phase=0;
 let point=1;
 let point = document.getElementById("click");
+let phase=0;
+let click=1;
 
 window.addEventListener("DOMContentLoaded", function () {
     quantity=localStorage;  //武器の個数の配列
@@ -11,7 +13,7 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 let weapon=document.getElementById("weapon");
-weapon.onclick = function(phase,click) {
+weapon.onclick = function() {
     quantity[phase]+=click;
     click++;
     point.innerHTML = point;
