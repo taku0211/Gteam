@@ -1,8 +1,109 @@
 let phase=0;    //フェーズ。何を今作っているか。例:0=ナイフ、1=ロングソード
+let now_make=0;
 let point=1;    
 let point_dom = document.getElementById("click");
-let click=1;
+let click=new Array(1,1,1,1,1,1,1,1,1,1);     //クリック毎の生産数
+let quantity=new Array(0,0,0,0,0,0,0,0,0,0);  //武器の個数の配列
 let gold=105000;  //ここの値が初期の所持金になる
+
+/* 左画面の下部分 --------------- */
+let weapon1=document.getElementById("weapon1");
+let weapon2=document.getElementById("weapon2");
+let weapon3=document.getElementById("weapon3");
+let weapon4=document.getElementById("weapon4");
+let weapon5=document.getElementById("weapon5");
+let weapon6=document.getElementById("weapon6");
+let weapon7=document.getElementById("weapon7");
+let weapon8=document.getElementById("weapon8");
+let weapon9=document.getElementById("weapon9");
+let weapon10=document.getElementById("weapon10");
+
+weapon1.onclick=function(){
+    weapon.src="images/"+weapon_png[0];
+    now_make=0;
+}
+weapon2.onclick=function(){
+    if(phase>=1){
+        weapon.src="images/"+weapon_png[1]; 
+        now_make=1;
+    }else{
+        alert("その武器を作るには工房のランクが足りません。");
+    }
+}
+weapon3.onclick=function(){
+    if(phase>=2){
+        weapon.src="images/"+weapon_png[2]; 
+        now_make=2;
+    }else{
+        alert("その武器を作るには工房のランクが足りません。");
+    }
+}
+weapon4.onclick=function(){
+    if(phase>=3){
+        weapon.src="images/"+weapon_png[3]; 
+        now_make=3;
+    }else{
+        alert("その武器を作るには工房のランクが足りません。");
+    }
+}
+weapon5.onclick=function(){
+    if(phase>=4){
+        weapon.src="images/"+weapon_png[4]; 
+        now_make=4;
+    }else{
+        alert("その武器を作るには工房のランクが足りません。");
+    }
+}
+weapon6.onclick=function(){
+    if(phase>=5){
+        weapon.src="images/"+weapon_png[5]; 
+        now_make=5;
+    }else{
+        alert("その武器を作るには工房のランクが足りません。");
+    }
+}
+weapon7.onclick=function(){
+    if(phase>=6){
+        weapon.src="images/"+weapon_png[6]; 
+        now_make=6;
+    }else{
+        alert("その武器を作るには工房のランクが足りません。");
+    }
+}
+weapon8.onclick=function(){
+    if(phase>=7){
+        weapon.src="images/"+weapon_png[7]; 
+        now_make=7;
+    }else{
+        alert("その武器を作るには工房のランクが足りません。");
+    }
+}
+weapon9.onclick=function(){
+    if(phase>=8){
+        weapon.src="images/"+weapon_png[8]; 
+        now_make=8;
+    }else{
+        alert("その武器を作るには工房のランクが足りません。");
+    }
+}
+weapon10.onclick=function(){
+    if(phase>=9){
+        weapon.src="images/"+weapon_png[9]; 
+        now_make=9;
+    }else{
+        alert("その武器を作るには工房のランクが足りません。");
+    }
+}
+let now_1=document.getElementById("now_1");
+let now_2=document.getElementById("now_2");
+let now_3=document.getElementById("now_3");
+let now_4=document.getElementById("now_4");
+let now_5=document.getElementById("now_5");
+let now_6=document.getElementById("now_6");
+let now_7=document.getElementById("now_7");
+let now_8=document.getElementById("now_8");
+let now_9=document.getElementById("now_9");
+let now_10=document.getElementById("now_10");
 
 /* アップグレードで使ったやつ -------------------------- */
 
@@ -24,20 +125,59 @@ let upgrade_alert_reset=function(){
     upgrade_alert.innerHTML="";
 }
 
-/*　現在の所持金を表示 */
-let gold_count=function(){
+/*　現在の武器の個数と所持金を表示 */
+let count=function(){
     now_gold.innerHTML="現在の所持金:"+gold+"G";
+    point_dom.innerHTML = "1クリック /"+click[now_make]+"個生産";
+    now_1.innerHTML="ナイフ:"+quantity[0];
+    now_2.innerHTML="ロングソード:"+quantity[1];
+    now_3.innerHTML="デュアルソード:"+quantity[2];
+    now_4.innerHTML="刀:"+quantity[3];
+    now_5.innerHTML="ファイアソード:"+quantity[4];
+    now_6.innerHTML=":"+quantity[5];
+    now_7.innerHTML=":"+quantity[6];
+    now_8.innerHTML=":"+quantity[7];
+    now_9.innerHTML=":"+quantity[8];
+    now_10.innerHTML=":"+quantity[9];
 }
 
-/* ----------------------------------------- */
+/* 購入で使ったやつ -------------------------- */
+let item_phase=0;
+const item1=new Array(500,500,500,1000);       //ナイフのアイテム
+const item2=new Array(1500,1500,1500,3000);    //ロングソードのアイテム
+const item3=new Array(4500,4500,4500,9000);    //デュアルソードのアイテム
+const item4=new Array(13500,13500,13500,27000);//刀のアイテム
+const item5=new Array(40500,40500,40500,71000);//のアイテム
+const item6=new Array(121500,121500,121500,213000);//のアイテム
+const item7=new Array(364500,364500,364500,639000);//のアイテム
+const item8=new Array(1093500,1093500,1093500,191700);//のアイテム
+const item9=new Array(3280500,3280500,3280500,5751000);//のアイテム
+const item10=new Array(9841500,9841500,9841500,17253000);//のアイテム
+let item1_name=document.getElementById("item1_name");
+let item1_text=document.getElementById("item1_text");
+let item2_name=document.getElementById("item2_name");
+let item2_text=document.getElementById("item2_text");
+let item3_name=document.getElementById("item3_name");
+let item3_text=document.getElementById("item3_text");
+let item4_name=document.getElementById("item4_name");
+let item4_text=document.getElementById("item4_text");
+
+/*
+quantitiy=武器の個数を管理する配列
+[0]=ナイフの個数
+[1]=ロングソードの個数
+[2]=デュアルソードの個数
+[3]=刀の個数
+[4]=ファイアソードの個数
+[5]=の個数
+[6]=の個数
+[7]=の個数
+[8]=の個数
+[9]=の個数
+*/
 
 window.addEventListener("DOMContentLoaded", function () {
-    quantity=localStorage;  //武器の個数の配列
-    for(let i=0;i<5;i++){   //武器の個数を初期化
-        quantity[i]=0;
-    }
-    point_dom.innerHTML = point;
-    setInterval(gold_count,100);    //0.1秒ごとに、現在の所持金の表示を更新
+    setInterval(count,100);    //0.1秒ごとに、現在の所持金と武器の個数の表示を更新
 });
 
 upgrade_button.addEventListener("click", function(){
@@ -45,6 +185,7 @@ upgrade_button.addEventListener("click", function(){
         gold-=upgrade_price[phase]; //アップグレード分のお金を引く
         upgrade_alert.innerHTML="アップグレードに成功しました!("+upgrade_price[phase]+"G消費)"; //アラートメッセージ表示
         phase+=1;   //フェーズを進める(次の武器を作るので)
+        now_make=phase;
         click=1;    //一度に作れる個数を1にリセット
         point=1;    //一度に作れる個数を1にリセット
         now_weapon.innerHTML=weapon_name[phase];            //アップグレード画面のテキストを次の武器に更新
@@ -62,8 +203,7 @@ upgrade_button.addEventListener("click", function(){
 
 let clickpoint = document.getElementById('clickpoint');
 weapon.onclick = function() {
-    quantity[phase]+=click;
-    point_dom.innerHTML = point;
+    quantity[phase]+=click[now_make];
     clickpoint.classList.remove('fadeout');
     window.setTimeout(function(){
         clickpoint.classList.add('fadeout');
@@ -86,20 +226,3 @@ document.querySelector( ".make" ).addEventListener( "click", function( event ) {
     clickpoint.style.top = y;
     clickpoint.style.left = x;
 } ) ;
-
-
-
-/*
-quantitiy=武器の個数を管理するローカルストレージ
-[0]=ナイフの個数
-[1]=ロングソードの個数
-[2]=デュアルソードの個数
-[3]=刀の個数
-[4]=ファイアソードの個数
-[5]
-[6]
-[7]
-[8]
-[9]
-*/
-

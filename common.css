@@ -26,6 +26,23 @@ body{
     position: relative;
 }
 
+.imgbox{
+    display: flex;
+    text-align: center;
+}
+
+.imgbox img{
+    width:5%;
+    height:5%;
+    margin:0 23;
+}
+
+.quantitiybox{
+    display: flex;
+    gap:10px;
+    font-size: 5px;
+}
+
 h1{
     font-size: 200%;
     text-align: center;
