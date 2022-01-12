@@ -66,12 +66,13 @@ h1{
 
 #clickpoint{
     position: absolute;
+    color: blue;
     top: 50%;
     left: 50%;
 }
 /* アニメーションの設定 */
 .fadeout {
-    animation : fadeOut 1s;
+    animation : fadeOut 2s;
     animation-fill-mode: both;
   }
   @keyframes fadeOut {
@@ -80,9 +81,10 @@ h1{
     }
     100% {
       opacity: 0;
+      transform: scale(1) translate(0%, -500%);
     }
   }
-  
+
 /* ---------------------------------------------------------- */
 /* 右画面 */
 /* ---------------------------------------------------------- */

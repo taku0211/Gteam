@@ -179,6 +179,7 @@ weapon.onclick = function() {
     }, 500);
 }
 
+
 document.querySelector( ".make" ).addEventListener( "click", function( event ) {
 	var clickX = event.pageX ;
 	var clickY = event.pageY ;
