@@ -142,7 +142,7 @@ let count=function(){
     }
     now_gold1.innerHTML="現在の所持金:"+gold+"G";
     now_gold2.innerHTML="現在の所持金:"+gold+"G";
-    weapon_sell_text="合計金額:"+i+"G";
+    weapon_sell_text="合計金額:"+j+"G";
     point_dom.innerHTML = "1クリック /"+click[now_make]+"個生産";
     now_1.innerHTML="ナイフ:"+quantity[0];
     now_2.innerHTML="ロングソード:"+quantity[1];
@@ -228,16 +228,19 @@ let count=function(){
     }else{
         buy_button_1.value="購入する";
     }
+
     if(item_sold[item_phase*4+1]==1){
         buy_button_2.value="購入済み";
     }else{
         buy_button_2.value="購入する";
     }
+
     if(item_sold[item_phase*4+2]==1){
         buy_button_3.value="購入済み";
     }else{
         buy_button_3.value="購入する";
     }
+
     if(item_sold[item_phase*4+3]==1){
         buy_button_4.value="購入済み";
     }else{
