@@ -2,9 +2,9 @@ let phase=0;    //フェーズ。何を今作っているか。例:0=ナイフ�
 let now_make=0;
 let point=1;    
 let point_dom = document.getElementById("click");
-let click=new Array(1,1,1,1,1,1,1,1,1,1);     //クリック毎の生産数
-let quantity=new Array(0,0,0,0,0,0,0,0,0,0);  //武器の個数の配列
-let gold=105000;  //ここの値が初期の所持金になる
+let click=new Array(1,1,1,1,1,1,1);     //クリック毎の生産数
+let quantity=new Array(0,0,0,0,0,0,0);  //武器の個数の配列
+let gold=9999999;  //ここの値が初期の所持金になる
 
 /* 左画面の下部分 --------------- */
 let weapon1=document.getElementById("weapon1");
@@ -67,14 +67,6 @@ weapon7.onclick=function(){
         alert("その武器を作るには工房のランクが足りません。");
     }
 }
-weapon8.onclick=function(){
-    if(phase>=7){
-        weapon.src="images/"+weapon_png[7]; 
-        now_make=7;
-    }else{
-        alert("その武器を作るには工房のランクが足りません。");
-    }
-}
 let now_1=document.getElementById("now_1");
 let now_2=document.getElementById("now_2");
 let now_3=document.getElementById("now_3");
@@ -94,7 +86,7 @@ let next_weapon=document.getElementById("next_weapon");         //次に作る�
 let next_weapon_png=document.getElementById("next_weapon_png"); //右画面の、次に作る武器の画像
 
 let upgrade_alert=document.getElementById("upgrade_alert");     //アップグレード時のアラートメッセージ
-const upgrade_price = new Array(5000, 10000, 20000,30000,50000);//アップグレードに必要な価格を入れた配列
+const upgrade_price = new Array(6000, 18000, 81000, 213000, 639000, 1917000);//アップグレードに必要な価格を入れた配列
 let upgrade_button=document.getElementById("upgrade_button");   //工房のアップグレードボタン 
 
 /*　アップグレード時のアラートメッセージを空白に*/
