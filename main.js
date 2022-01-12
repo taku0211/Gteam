@@ -14,9 +14,6 @@ let weapon4=document.getElementById("weapon4");
 let weapon5=document.getElementById("weapon5");
 let weapon6=document.getElementById("weapon6");
 let weapon7=document.getElementById("weapon7");
-let weapon8=document.getElementById("weapon8");
-let weapon9=document.getElementById("weapon9");
-let weapon10=document.getElementById("weapon10");
 
 weapon1.onclick=function(){
     weapon.src="images/"+weapon_png[0];
@@ -78,22 +75,6 @@ weapon8.onclick=function(){
         alert("その武器を作るには工房のランクが足りません。");
     }
 }
-weapon9.onclick=function(){
-    if(phase>=8){
-        weapon.src="images/"+weapon_png[8]; 
-        now_make=8;
-    }else{
-        alert("その武器を作るには工房のランクが足りません。");
-    }
-}
-weapon10.onclick=function(){
-    if(phase>=9){
-        weapon.src="images/"+weapon_png[9]; 
-        now_make=9;
-    }else{
-        alert("その武器を作るには工房のランクが足りません。");
-    }
-}
 let now_1=document.getElementById("now_1");
 let now_2=document.getElementById("now_2");
 let now_3=document.getElementById("now_3");
@@ -101,15 +82,12 @@ let now_4=document.getElementById("now_4");
 let now_5=document.getElementById("now_5");
 let now_6=document.getElementById("now_6");
 let now_7=document.getElementById("now_7");
-let now_8=document.getElementById("now_8");
-let now_9=document.getElementById("now_9");
-let now_10=document.getElementById("now_10");
 
 /* アップグレードで使ったやつ -------------------------- */
 
 let weapon=document.getElementById("weapon"); //左画面の武器の画像
-const weapon_name = new Array("ナイフ", "ロングソード", "デュアルソード","刀","ファイアソード");    //武器名を入れた配列
-const weapon_png = new Array("ナイフ.png", "ロングソード.png", "デュアルソード.png","刀.png","ファイアソード.png")  //武器の画像名を入れた配列
+const weapon_name = new Array("ナイフ", "ロングソード", "デュアルソード","刀","ファイアソード","魔剣","聖剣");    //武器名を入れた配列
+const weapon_png = new Array("ナイフ.png", "ロングソード.png", "デュアルソード.png","刀.png","ファイアソード.png","魔剣.png","聖剣.png")  //武器の画像名を入れた配列
 let now_weapon=document.getElementById("now_weapon");           //現在作っている武器の名前
 let now_weapon_png=document.getElementById("now_weapon_png");   //右画面の、現在作っている武器の画像
 let next_weapon=document.getElementById("next_weapon");         //次に作る武器の名前
@@ -117,7 +95,6 @@ let next_weapon_png=document.getElementById("next_weapon_png"); //右画面の�
 
 let upgrade_alert=document.getElementById("upgrade_alert");     //アップグレード時のアラートメッセージ
 const upgrade_price = new Array(5000, 10000, 20000,30000,50000);//アップグレードに必要な価格を入れた配列
-let now_gold=document.getElementById("now_g");                  //右画面の、現在の所持金を出す部分
 let upgrade_button=document.getElementById("upgrade_button");   //工房のアップグレードボタン 
 
 /*　アップグレード時のアラートメッセージを空白に*/
@@ -126,6 +103,7 @@ let upgrade_alert_reset=function(){
 }
 
 /*　現在の武器の個数と所持金を表示 */
+let now_gold=document.getElementById("now_g");                  //右画面の、現在の所持金を出す部分
 let count=function(){
     now_gold.innerHTML="現在の所持金:"+gold+"G";
     point_dom.innerHTML = "1クリック /"+click[now_make]+"個生産";
@@ -134,11 +112,8 @@ let count=function(){
     now_3.innerHTML="デュアルソード:"+quantity[2];
     now_4.innerHTML="刀:"+quantity[3];
     now_5.innerHTML="ファイアソード:"+quantity[4];
-    now_6.innerHTML=":"+quantity[5];
-    now_7.innerHTML=":"+quantity[6];
-    now_8.innerHTML=":"+quantity[7];
-    now_9.innerHTML=":"+quantity[8];
-    now_10.innerHTML=":"+quantity[9];
+    now_6.innerHTML="魔剣:"+quantity[5];
+    now_7.innerHTML="聖剣:"+quantity[6];
 }
 
 /* 購入で使ったやつ -------------------------- */
@@ -147,12 +122,9 @@ const item1=new Array(500,500,500,1000);       //ナイフのアイテム
 const item2=new Array(1500,1500,1500,3000);    //ロングソードのアイテム
 const item3=new Array(4500,4500,4500,9000);    //デュアルソードのアイテム
 const item4=new Array(13500,13500,13500,27000);//刀のアイテム
-const item5=new Array(40500,40500,40500,71000);//のアイテム
-const item6=new Array(121500,121500,121500,213000);//のアイテム
-const item7=new Array(364500,364500,364500,639000);//のアイテム
-const item8=new Array(1093500,1093500,1093500,191700);//のアイテム
-const item9=new Array(3280500,3280500,3280500,5751000);//のアイテム
-const item10=new Array(9841500,9841500,9841500,17253000);//のアイテム
+const item5=new Array(40500,40500,40500,71000);//ファイアソードのアイテム
+const item6=new Array(121500,121500,121500,213000);//魔剣のアイテム
+const item7=new Array(364500,364500,364500,639000);//聖剣のアイテム
 let item1_name=document.getElementById("item1_name");
 let item1_text=document.getElementById("item1_text");
 let item2_name=document.getElementById("item2_name");
@@ -169,11 +141,8 @@ quantitiy=武器の個数を管理する配列
 [2]=デュアルソードの個数
 [3]=刀の個数
 [4]=ファイアソードの個数
-[5]=の個数
-[6]=の個数
-[7]=の個数
-[8]=の個数
-[9]=の個数
+[5]=魔剣の個数
+[6]=聖剣の個数
 */
 
 window.addEventListener("DOMContentLoaded", function () {
