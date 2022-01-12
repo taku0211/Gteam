@@ -72,7 +72,7 @@ h1{
 }
 /* アニメーションの設定 */
 .fadeout {
-    animation : fadeOut 3s;
+    animation : fadeOut 2s;
     animation-fill-mode: both;
   }
   @keyframes fadeOut {
