@@ -128,21 +128,21 @@ let buy_button_2=document.getElementById("buy_button_2");
 let buy_button_3=document.getElementById("buy_button_3");
 let buy_button_4=document.getElementById("buy_button_4");
 
-/*
-quantitiy=武器の個数を管理する配列
-[0]=ナイフの個数
-[1]=ロングソードの個数
-[2]=デュアルソードの個数
-[3]=刀の個数
-[4]=ファイアソードの個数
-[5]=魔剣の個数
-[6]=聖剣の個数
-*/
+/* 売却で使ったやつ ---------------------------- */
+let sell_button=document.getElementById("sell_button");
 
-/*　現在の武器の個数と所持金を表示 */
-let now_gold=document.getElementById("now_g");                  //右画面の、現在の所持金を出す部分
+/*　現在の状況を表示 */
+let now_gold1=document.getElementById("now_g1");                  //右画面の、現在の所持金を出す部分
+let now_gold2=document.getElementById("now_g2");
+let weapon_sell_text=document.getElementById("weapon_sell");
+let j; //合計金額
 let count=function(){
-    now_gold.innerHTML="現在の所持金:"+gold+"G";
+    for(let k=0;k<7;k++){
+        j=quantity[k]*weapon_sell[k];
+    }
+    now_gold1.innerHTML="現在の所持金:"+gold+"G";
+    now_gold2.innerHTML="現在の所持金:"+gold+"G";
+    weapon_sell_text="合計金額:"+i+"G";
     point_dom.innerHTML = "1クリック /"+click[now_make]+"個生産";
     now_1.innerHTML="ナイフ:"+quantity[0];
     now_2.innerHTML="ロングソード:"+quantity[1];
@@ -374,6 +374,24 @@ buy_button_4.addEventListener("click", function(){
         setTimeout(item4_alert_reset,1500);
     }
 });
+
+let sell_alert=document.getElementById("sell_alert");
+let sell_alert_reset=function(){ 
+    sell_alert.innerHTML="";
+}
+sell_button.addEventListener("click",function(){
+    if(j!=0){
+        gold+=j;
+        for(let k=0;k<7;k++){
+            quantity[k]=0;
+        }
+        sell_alert.innerHTML="売却しました!";
+        setTimeout(sell_alert_reset,3000);
+    }else{
+        sell_alert.innerHTML="売却する武器がありません。";
+        setTimeout(sell_alert_reset,1500);
+    }
+})
 
 let clickpoint = document.getElementById('clickpoint');
 weapon.onclick = function() {
