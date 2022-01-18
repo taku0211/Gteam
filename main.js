@@ -28,7 +28,7 @@ let weapon_sell6=1000000;
 let weapon_sell7=10000000;
 
 let weapon_sell_price=document.getElementById("now_weapon_price");
-let gold=10000000;  //ここの値が初期の所持金になる
+let gold=500;  //ここの値が初期の所持金になる
 
 /* 左画面の下部分 --------------- */
 let weapon1=document.getElementById("weapon1");
@@ -351,6 +351,7 @@ let item4_alert_reset=function(){
     item4_alert.innerHTML="";
 }
 
+//アイテム1の購入
 buy_button_1.addEventListener("click", function(){
     let i=item_phase*4+0;
     if(item_sold[i]==0){
@@ -368,9 +369,6 @@ buy_button_1.addEventListener("click", function(){
             gold-=item_price[i];
             item1_alert.innerHTML="購入しました!";
             setTimeout(item1_alert_reset,3000);
-        }else{
-            item1_alert.innerHTML="購入に失敗しました。("+item_price[i]-gold+"G不足)";
-            setTimeout(item1_alert_reset,3000);
         }
     }else{
         item1_alert.innerHTML="購入済みです。";
@@ -378,6 +376,7 @@ buy_button_1.addEventListener("click", function(){
     }
 });
 
+//アイテム2の購入
 buy_button_2.addEventListener("click", function(){
     let i=item_phase*4+1;
     if(item_sold[i]==0){
@@ -395,9 +394,6 @@ buy_button_2.addEventListener("click", function(){
             item2_alert.innerHTML="購入しました!";
             gold-=item_price[i];
             setTimeout(item2_alert_reset,3000);
-        }else{
-            item2_alert.innerHTML="購入に失敗しました。("+item_price[i]-gold+"G不足)";
-            setTimeout(item2_alert_reset,3000);
         }
     }else{
         item2_alert.innerHTML="購入済みです。";
@@ -405,6 +401,7 @@ buy_button_2.addEventListener("click", function(){
     }
 });
 
+//アイテム3の購入
 buy_button_3.addEventListener("click", function(){
     let i=item_phase*4+2;
     if(item_sold[i]==0){
@@ -422,9 +419,6 @@ buy_button_3.addEventListener("click", function(){
             item3_alert.innerHTML="購入しました!";
             gold-=item_price[i];
             setTimeout(item3_alert_reset,3000);
-        }else{
-            item3_alert.innerHTML="購入に失敗しました。("+item_price[i]-gold+"G不足)";
-            setTimeout(item3_alert_reset,3000);
         }
     }else{
         item3_alert.innerHTML="購入済みです。";
@@ -432,6 +426,7 @@ buy_button_3.addEventListener("click", function(){
     }
 });
 
+//アイテム4の購入
 buy_button_4.addEventListener("click", function(){
     let i=item_phase*4+3;
     if(item_sold[i]==0){
@@ -448,9 +443,6 @@ buy_button_4.addEventListener("click", function(){
                 case 5:click6*=2; break;
                 case 6:click7*=2; break;
             }
-            setTimeout(item4_alert_reset,3000);
-        }else{
-            item4_alert.innerHTML="購入に失敗しました。("+item_price[i]-gold+"G不足)";
             setTimeout(item4_alert_reset,3000);
         }
     }else{
