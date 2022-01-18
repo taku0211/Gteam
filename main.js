@@ -3,9 +3,31 @@ let item_phase=0; //現在作っている物に応じて右の購入画面を変
 let now_make=0;
 let point=1;    
 let point_dom = document.getElementById("click");
-let click=new Array(1,1,1,1,1,1,1);     //クリック毎の生産数
-let quantity=new Array(0,0,0,0,0,0,0);  //武器の個数の配列
-let weapon_sell=new Array(20,40,80,160,320,640,1280);
+
+/*　配列だと動作しない為各個変数　*/
+let click1=1;
+let click2=1;
+let click3=1;
+let click4=1;
+let click5=1;
+let click6=1;
+let click7=1;
+let quantity1=0;
+let quantity2=0;
+let quantity3=0;
+let quantity4=0;
+let quantity5=0;
+let quantity6=0;
+let quantity7=0;
+let weapon_sell1=10;
+let weapon_sell2=100;
+let weapon_sell3=1000;
+let weapon_sell4=10000;
+let weapon_sell5=100000;
+let weapon_sell6=1000000;
+let weapon_sell7=10000000;
+
+let weapon_sell_price=document.getElementById("now_weapon_price");
 let gold=9999999;  //ここの値が初期の所持金になる
 
 /* 左画面の下部分 --------------- */
@@ -21,12 +43,14 @@ weapon1.onclick=function(){
     weapon.src="images/"+weapon_png[0];
     now_make=0;
     item_phase=0;
+    weapon_sell_price.innerHTML="現在の武器の価格:"+weapon_sell1+"G/1個";
 }
 weapon2.onclick=function(){
     if(phase>=1){
         weapon.src="images/"+weapon_png[1]; 
         now_make=1;
         item_phase=1;
+        weapon_sell_price.innerHTML="現在の武器の価格:"+weapon_sell2+"G/1個";
     }else{
         alert("その武器を作るには工房のランクが足りません。");
     }
@@ -36,6 +60,7 @@ weapon3.onclick=function(){
         weapon.src="images/"+weapon_png[2]; 
         now_make=2;
         item_phase=2;
+        weapon_sell_price.innerHTML="現在の武器の価格:"+weapon_sell3+"G/1個";
     }else{
         alert("その武器を作るには工房のランクが足りません。");
     }
@@ -45,6 +70,7 @@ weapon4.onclick=function(){
         weapon.src="images/"+weapon_png[3]; 
         now_make=3;
         item_phase=3;
+        weapon_sell_price.innerHTML="現在の武器の価格:"+weapon_sell4+"G/1個";
     }else{
         alert("その武器を作るには工房のランクが足りません。");
     }
@@ -54,6 +80,7 @@ weapon5.onclick=function(){
         weapon.src="images/"+weapon_png[4]; 
         now_make=4;
         item_phase=4;
+        weapon_sell_price.innerHTML="現在の武器の価格:"+weapon_sell5+"G/1個";
     }else{
         alert("その武器を作るには工房のランクが足りません。");
     }
@@ -63,6 +90,7 @@ weapon6.onclick=function(){
         weapon.src="images/"+weapon_png[5]; 
         now_make=5;
         item_phase=5;
+        weapon_sell_price.innerHTML="現在の武器の価格:"+weapon_sell6+"G/1個";
     }else{
         alert("その武器を作るには工房のランクが足りません。");
     }
@@ -72,6 +100,7 @@ weapon7.onclick=function(){
         weapon.src="images/"+weapon_png[6]; 
         now_make=6;
         item_phase=6;
+        weapon_sell_price.innerHTML="現在の武器の価格:"+weapon_sell7+"G/1個";
     }else{
         alert("その武器を作るには工房のランクが足りません。");
     }
@@ -130,29 +159,29 @@ let buy_button_4=document.getElementById("buy_button_4");
 
 /* 売却で使ったやつ ---------------------------- */
 let sell_button=document.getElementById("sell_button");
+let weapon_sell_text=document.getElementById("weapon_sell");
 
 /*　現在の状況を表示 */
 let now_gold1=document.getElementById("now_g1");                  //右画面の、現在の所持金を出す部分
 let now_gold2=document.getElementById("now_g2");
-let weapon_sell_text=document.getElementById("weapon_sell");
-let j; //合計金額
+let all_sell=0; //合計金額
 let count=function(){
-    for(let k=0;k<7;k++){
-        j=quantity[k]*weapon_sell[k];
-    }
+    all_sell=quantity1*weapon_sell1+quantity2*weapon_sell2+quantity3*weapon_sell3
+    +quantity4*weapon_sell4+quantity5*weapon_sell5+quantity6*weapon_sell6+quantity7*weapon_sell7;
     now_gold1.innerHTML="現在の所持金:"+gold+"G";
     now_gold2.innerHTML="現在の所持金:"+gold+"G";
-    weapon_sell_text="合計金額:"+j+"G";
-    point_dom.innerHTML = "1クリック /"+click[now_make]+"個生産";
-    now_1.innerHTML="ナイフ:"+quantity[0];
-    now_2.innerHTML="ロングソード:"+quantity[1];
-    now_3.innerHTML="デュアルソード:"+quantity[2];
-    now_4.innerHTML="刀:"+quantity[3];
-    now_5.innerHTML="ファイアソード:"+quantity[4];
-    now_6.innerHTML="魔剣:"+quantity[5];
-    now_7.innerHTML="聖剣:"+quantity[6];
-    switch(item_phase){
+    weapon_sell_text.innerHTML="合計金額:"+all_sell+"G";
+    now_1.innerHTML="ナイフ:"+quantity1;
+    now_2.innerHTML="ロングソード:"+quantity2;
+    now_3.innerHTML="デュアルソード:"+quantity3;
+    now_4.innerHTML="刀:"+quantity4;
+    now_5.innerHTML="ファイアソード:"+quantity5;
+    now_6.innerHTML="魔剣:"+quantity6;
+    now_7.innerHTML="聖剣:"+quantity7;
+    switch(now_make){
         case 0:
+            weapon_sell_price.innerHTML="現在の武器の価格:"+weapon_sell1+"G/1個";
+            point_dom.innerHTML = "1クリック /"+click1+"個生産";
             item1_name.innerHTML=item1[0];
             item2_name.innerHTML=item1[1];
             item3_name.innerHTML=item1[2];
@@ -163,6 +192,8 @@ let count=function(){
             item4_text.innerHTML="クリックの度に作れる本数が1本増える。("+item_price[3]+"G)";
             break;
         case 1:
+            weapon_sell_price.innerHTML="現在の武器の価格:"+weapon_sell2+"G/1個";
+            point_dom.innerHTML = "1クリック /"+click2+"個生産";
             item1_name.innerHTML=item2[0];
             item2_name.innerHTML=item2[1];
             item3_name.innerHTML=item2[2];
@@ -173,6 +204,8 @@ let count=function(){
             item4_text.innerHTML="クリックの度に作れる本数が1本増える。("+item_price[7]+"G)";
             break;
         case 2:
+            weapon_sell_price.innerHTML="現在の武器の価格:"+weapon_sell3+"G/1個";
+            point_dom.innerHTML = "1クリック /"+click3+"個生産";
             item1_name.innerHTML=item3[0];
             item2_name.innerHTML=item3[1];
             item3_name.innerHTML=item3[2];
@@ -183,6 +216,8 @@ let count=function(){
             item4_text.innerHTML="クリックの度に作れる本数が1本増える。("+item_price[11]+"G)";
             break;
         case 3:
+            weapon_sell_price.innerHTML="現在の武器の価格:"+weapon_sell4+"G/1個";
+            point_dom.innerHTML = "1クリック /"+click4+"個生産";
             item1_name.innerHTML=item4[0];
             item2_name.innerHTML=item4[1];
             item3_name.innerHTML=item4[2];
@@ -193,6 +228,8 @@ let count=function(){
             item4_text.innerHTML="クリックの度に作れる本数が1本増える。("+item_price[15]+"G)";
             break;
         case 4:
+            weapon_sell_price.innerHTML="現在の武器の価格:"+weapon_sell5+"G/1個";
+            point_dom.innerHTML = "1クリック /"+click5+"個生産";
             item1_name.innerHTML=item5[0];
             item2_name.innerHTML=item5[1];
             item3_name.innerHTML=item5[2];
@@ -203,6 +240,8 @@ let count=function(){
             item4_text.innerHTML="クリックの度に作れる本数が1本増える。("+item_price[19]+"G)";
             break;
         case 5:
+            weapon_sell_price.innerHTML="現在の武器の価格:"+weapon_sell6+"G/1個";
+            point_dom.innerHTML = "1クリック /"+click6+"個生産";
             item1_name.innerHTML=item6[0];
             item2_name.innerHTML=item6[1];
             item3_name.innerHTML=item6[2];
@@ -213,6 +252,8 @@ let count=function(){
             item4_text.innerHTML="クリックの度に作れる本数が1本増える。("+item_price[23]+"G)";
             break;
         case 6:
+            weapon_sell_price.innerHTML="現在の武器の価格:"+weapon_sell7+"G/1個";
+            point_dom.innerHTML = "1クリック /"+click7+"個生産";
             item1_name.innerHTML=item7[0];
             item2_name.innerHTML=item7[1];
             item3_name.innerHTML=item7[2];
@@ -260,7 +301,6 @@ upgrade_button.addEventListener("click", function(){
             phase+=1;   //フェーズを進める(次の武器を作るので)
             now_make=phase;
             item_phase=now_make;
-            click=1;    //一度に作れる個数を1にリセット
             point=1;    //一度に作れる個数を1にリセット
             if(phase!=6){
                 now_weapon.innerHTML=weapon_name[phase];            //アップグレード画面のテキストを次の武器に更新
@@ -310,7 +350,15 @@ buy_button_1.addEventListener("click", function(){
     let i=item_phase*4+0;
     if(item_sold[i]==0){
         if(item_price[i]<=gold){
-            weapon_sell[item_phase]*=2;
+            switch(item_phase){
+                case 0:weapon_sell1*=2; break;
+                case 1:weapon_sell2*=2; break;
+                case 2:weapon_sell3*=2; break;
+                case 3:weapon_sell4*=2; break;
+                case 4:weapon_sell5*=2; break;
+                case 5:weapon_sell6*=2; break;
+                case 6:weapon_sell7*=2; break;
+            }
             item_sold[i]=1;
             item1_alert.innerHTML="購入しました!";
             setTimeout(item1_alert_reset,3000);
@@ -328,7 +376,15 @@ buy_button_2.addEventListener("click", function(){
     let i=item_phase*4+1;
     if(item_sold[i]==0){
         if(item_price[i]<=gold){
-            weapon_sell[item_phase]*=2;
+            switch(item_phase){
+                case 0:weapon_sell1*=2; break;
+                case 1:weapon_sell2*=2; break;
+                case 2:weapon_sell3*=2; break;
+                case 3:weapon_sell4*=2; break;
+                case 4:weapon_sell5*=2; break;
+                case 5:weapon_sell6*=2; break;
+                case 6:weapon_sell7*=2; break;
+            }
             item_sold[i]=1;
             item2_alert.innerHTML="購入しました!";
             setTimeout(item2_alert_reset,3000);
@@ -346,7 +402,15 @@ buy_button_3.addEventListener("click", function(){
     let i=item_phase*4+2;
     if(item_sold[i]==0){
         if(item_price[i]<=gold){
-            weapon_sell[item_phase]*=2;
+            switch(item_phase){
+                case 0:weapon_sell1*=2; break;
+                case 1:weapon_sell2*=2; break;
+                case 2:weapon_sell3*=2; break;
+                case 3:weapon_sell4*=2; break;
+                case 4:weapon_sell5*=2; break;
+                case 5:weapon_sell6*=2; break;
+                case 6:weapon_sell7*=2; break;
+            }
             item_sold[i]=1;
             item3_alert.innerHTML="購入しました!";
             setTimeout(item3_alert_reset,3000);
@@ -364,9 +428,17 @@ buy_button_4.addEventListener("click", function(){
     let i=item_phase*4+3;
     if(item_sold[i]==0){
         if(item_price[i]<=gold){
-            click[item_phase]*=2;
             item_sold[i]=1;
             item4_alert.innerHTML="購入しました!";
+            switch(item_phase){
+                case 0:click1*=2; break;
+                case 1:click2*=2; break;
+                case 2:click3*=2; break;
+                case 3:click4*=2; break;
+                case 4:click5*=2; break;
+                case 5:click6*=2; break;
+                case 6:click7*=2; break;
+            }
             setTimeout(item4_alert_reset,3000);
         }else{
             item4_alert.innerHTML="購入に失敗しました。("+item_price[i]-gold+"G不足)";
@@ -383,11 +455,15 @@ let sell_alert_reset=function(){
     sell_alert.innerHTML="";
 }
 sell_button.addEventListener("click",function(){
-    if(j!=0){
-        gold+=j;
-        for(let k=0;k<7;k++){
-            quantity[k]=0;
-        }
+    if(all_sell!=0){
+        gold+=all_sell;
+        quantity1=0;
+        quantity2=0;
+        quantity3=0;
+        quantity4=0;
+        quantity5=0;
+        quantity6=0;
+        quantity7=0;
         sell_alert.innerHTML="売却しました!";
         setTimeout(sell_alert_reset,3000);
     }else{
@@ -398,7 +474,15 @@ sell_button.addEventListener("click",function(){
 
 let clickpoint = document.getElementById('clickpoint');
 weapon.onclick = function() {
-    quantity[now_make]+=click[now_make];
+    switch(now_make){
+        case 0:quantity1+=click1; break;
+        case 1:quantity2+=click2; break;
+        case 2:quantity3+=click3; break;
+        case 3:quantity4+=click4; break;
+        case 4:quantity5+=click5; break;
+        case 5:quantity6+=click6; break;
+        case 6:quantity7+=click7; break;
+    }
     clickpoint.classList.remove('fadeout');
     window.setTimeout(function(){
         clickpoint.classList.add('fadeout');
