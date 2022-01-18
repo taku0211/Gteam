@@ -67,6 +67,8 @@ h1{
 #clickpoint{
     position: absolute;
     color: blue;
+    color: black;
+    font-size: 25px;
     top: 50%;
     left: 50%;
 }
@@ -183,17 +185,36 @@ font-size: large;
     width:19%;
     height:19%;
 }
-.item1,.item2,.item3,.item4{
-    margin :10 40;
-    display: flex;
-    gap:0 5px;
-}
 
 .sell{
     background-color: rgb(236, 175, 8);
     width:100%;
     color:rgb(0, 0, 0);   
 }
+
+.sell_box{
+    background-color: rgb(236, 175, 8);
+    color:rgb(0, 0, 0);
+    display: flex;
+}
+
+
+.item1,.item2,.item3,.item4{
+    margin :10 40;
+    display: flex;
+    gap:0 5px;
+}
+
+
+/*-----------------------------------------------------*/
+/*売却*/
+/*-----------------------------------------------------*/
+.sell{
+    background-color: rgb(236, 175, 8);
+    width:100%;
+    color:rgb(0, 0, 0);   
+}
+
 .sell_box{
     background-color: rgb(236, 175, 8);
     color:rgb(0, 0, 0);
@@ -202,4 +223,4 @@ font-size: large;
 
 /*-----------------------------------------------------*/
 /*売却*/
-/*-----------------------------------------------------*/
+/*-----------------------------------------------------*//*-----------------------------------------------------*/
