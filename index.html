@@ -10,6 +10,7 @@
             <div class="make">
                 <p id="tukure">作れ!</p>
                 <p id="click"></p>
+                <p id="now_weapon_price">現在の武器の価格:20G/1個</p>
                 <img id="weapon"src="images/ナイフ.png">
                 <p id = "clickpoint">+1</p>
                 <div class="imgbox">
@@ -30,6 +31,9 @@
                     <p id="now_6">魔剣:0</p>
                     <p id="now_7">聖剣:0</p>
                 </div>
+                <div class="Explanation">
+                    <p>上の武器の画像をクリックして武器を作って売ってお金を稼ごう!</p>
+                </div>
             </div>
 
             <div class="menu">
@@ -41,8 +45,8 @@
                         <p>-----></p>
                         <img id="next_weapon_png"src="images/ロングソード.png">
                         <div class="text_box">
-                        <p id="upgrade_price">必要料金:5000G</p>
-                        <p id="now_g">現在の所持金:0G</p>
+                        <p id="upgrade_price">必要料金:10000G</p>
+                        <p id="now_g1">現在の所持金:0G</p>
                         </div>
                     </div>
                     <div class="upgrade_box_2">
@@ -96,10 +100,15 @@
                         <div class="sell">
                             <p id="big">売却</p>
                             <div class="sell_box">
-                                
+                                <p>現在所持している武器を全て売却します。</p>
+                                <p id="weapon_sell">合計金額:0G</p>
+                                <input type="button" id="sell_button" value="売却する"><br>
+                                <p id="now_g2">現在の所持金:0G</p>
+                                <p id="sell_alert"></p>
                             </div>
                         </div>
                     </div>
+                <br>
                 </div>
             </div>
 
