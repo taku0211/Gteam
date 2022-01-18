@@ -28,7 +28,7 @@ let weapon_sell6=1000000;
 let weapon_sell7=10000000;
 
 let weapon_sell_price=document.getElementById("now_weapon_price");
-let gold=9999999;  //ここの値が初期の所持金になる
+let gold=10000000;  //ここの値が初期の所持金になる
 
 /* 左画面の下部分 --------------- */
 let weapon1=document.getElementById("weapon1");
@@ -125,7 +125,7 @@ let next_weapon_png=document.getElementById("next_weapon_png"); //右画面の�
 
 let upgrade_alert=document.getElementById("upgrade_alert");     //アップグレード時のアラートメッセージ
 let upgrade_price=document.getElementById("upgrade_price");
-const upgrade_prices = new Array(6000, 18000, 81000, 213000, 639000, 1917000);//アップグレードに必要な価格を入れた配列
+const upgrade_prices = new Array(10000, 100000, 1000000, 10000000, 100000000, 1000000000);//アップグレードに必要な価格を入れた配列
 let upgrade_button=document.getElementById("upgrade_button");   //工房のアップグレードボタン 
 
 /*　アップグレード時のアラートメッセージを空白に*/
@@ -142,8 +142,13 @@ const item5=new Array("精霊の火種","ドワーフの炉","付与術","魔法
 const item6=new Array("魔族の角","屍者の生首","魔族の墓石","魔剣職人");
 const item7=new Array("オリハルコン","魔力合金","世界樹の木材","伝説の鍛冶師");
 const item_sold=new Array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
-const item_price=new Array(500,500,500,1000,1500,1500,1500,3000,4500,4500,4500,9000,13500,13500,13500,27000,40500,40500,40500,71000,
-                           121500,121500,121500,213000,364500,364500,364500,639000);
+const item_price=new Array(500,1000,2000,3000,
+                           5000,10000,20000,30000,
+                           50000,100000,200000,300000,
+                           500000,1000000,2000000,3000000,
+                           5000000,10000000,20000000,30000000,
+                           50000000,100000000,200000000,300000000,
+                           500000000,1000000000,2000000000,3000000000);
 let item1_name=document.getElementById("item1_name");
 let item1_text=document.getElementById("item1_text");
 let item2_name=document.getElementById("item2_name");
@@ -319,7 +324,7 @@ upgrade_button.addEventListener("click", function(){
             }
             setTimeout(upgrade_alert_reset,1500);               //1.5秒後、アラートメッセージ削除
         }else{
-            upgrade_alert.innerHTML="アップグレードに失敗しました。("+(upgrade_price[phase]-gold)+"G不足)"; //アラートメッセージ表示
+            upgrade_alert.innerHTML="アップグレードに失敗しました。("+(upgrade_prices[phase]-gold)+"G不足)"; //アラートメッセージ表示
             setTimeout(upgrade_alert_reset,1500);   //1.5秒後、アラートメッセージ削除
         }
     }else{
@@ -360,6 +365,7 @@ buy_button_1.addEventListener("click", function(){
                 case 6:weapon_sell7*=2; break;
             }
             item_sold[i]=1;
+            gold-=item_price[i];
             item1_alert.innerHTML="購入しました!";
             setTimeout(item1_alert_reset,3000);
         }else{
@@ -387,6 +393,7 @@ buy_button_2.addEventListener("click", function(){
             }
             item_sold[i]=1;
             item2_alert.innerHTML="購入しました!";
+            gold-=item_price[i];
             setTimeout(item2_alert_reset,3000);
         }else{
             item2_alert.innerHTML="購入に失敗しました。("+item_price[i]-gold+"G不足)";
@@ -413,6 +420,7 @@ buy_button_3.addEventListener("click", function(){
             }
             item_sold[i]=1;
             item3_alert.innerHTML="購入しました!";
+            gold-=item_price[i];
             setTimeout(item3_alert_reset,3000);
         }else{
             item3_alert.innerHTML="購入に失敗しました。("+item_price[i]-gold+"G不足)";
@@ -430,6 +438,7 @@ buy_button_4.addEventListener("click", function(){
         if(item_price[i]<=gold){
             item_sold[i]=1;
             item4_alert.innerHTML="購入しました!";
+            gold-=item_price[i];
             switch(item_phase){
                 case 0:click1*=2; break;
                 case 1:click2*=2; break;
