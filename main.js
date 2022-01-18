@@ -398,7 +398,7 @@ sell_button.addEventListener("click",function(){
 
 let clickpoint = document.getElementById('clickpoint');
 weapon.onclick = function() {
-    quantity[phase]+=click[now_make];
+    quantity[now_make]+=click[now_make];
     clickpoint.classList.remove('fadeout');
     window.setTimeout(function(){
         clickpoint.classList.add('fadeout');
