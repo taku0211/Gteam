@@ -484,14 +484,22 @@ weapon.onclick = function() {
         case 5:quantity6+=click6; break;
         case 6:quantity7+=click7; break;
     }
-    clickpoint.classList.remove('fadeout');
-    window.setTimeout(function(){
-        clickpoint.classList.add('fadeout');
-    }, 500);
 }
 
 
 document.querySelector( ".make" ).addEventListener( "click", function( event ) {
+    /** クリックしたら weapon のしたに追加 **/
+    // id属性で要素を取得
+    var wp_element = document.getElementById('weapon');
+
+    // 新しいHTML要素を作成
+    var new_element1 = document.createElement('p');
+    new_element1.className = "clickpoint";
+    new_element1.textContent = '+1';
+    
+    // 指定した要素の後に挿入
+    wp_element.after(new_element1);
+
 	var clickX = event.pageX ;
 	var clickY = event.pageY ;
 
@@ -504,6 +512,14 @@ document.querySelector( ".make" ).addEventListener( "click", function( event ) {
 	var x = clickX - positionX ;
 	var y = clickY - positionY ;
 
-    clickpoint.style.top = y;
-    clickpoint.style.left = x;
+    new_element1.style.top = y;
+    new_element1.style.left = x;
+
+    new_element1.classList.remove('fadeout');
+    window.setTimeout(function(){
+        new_element1.classList.add('fadeout');
+    }, 250);
+
+
+    clickpoint.remove();
 } ) ;
