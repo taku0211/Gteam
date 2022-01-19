@@ -1,10 +1,11 @@
 let phase=0;    //フェーズ。何を今作っているか。例:0=ナイフ、1=ロングソード
 let item_phase=0; //現在作っている物に応じて右の購入画面を変えるためのもの
-let now_make=0;
-let point=1;    
+let now_make=0; //現在作っている物に応じて左の画面を変えるためのもの
+let point=1;
 let point_dom = document.getElementById("click");
 
 /*　配列だと動作しない為各個変数　*/
+/* クリック毎の生産個数 */
 let click1=1;
 let click2=1;
 let click3=1;
@@ -12,6 +13,7 @@ let click4=1;
 let click5=1;
 let click6=1;
 let click7=1;
+/* 所持武器の個数 */
 let quantity1=0;
 let quantity2=0;
 let quantity3=0;
@@ -19,6 +21,7 @@ let quantity4=0;
 let quantity5=0;
 let quantity6=0;
 let quantity7=0;
+/* 武器毎の販売価格 */
 let weapon_sell1=10;
 let weapon_sell2=100;
 let weapon_sell3=1000;
@@ -27,7 +30,7 @@ let weapon_sell5=100000;
 let weapon_sell6=1000000;
 let weapon_sell7=10000000;
 
-let weapon_sell_price=document.getElementById("now_weapon_price");
+let weapon_sell_price=document.getElementById("now_weapon_price");  //左上の武器の販売価格を示すもの
 let gold=500;  //ここの値が初期の所持金になる
 
 /* 左画面の下部分 --------------- */
@@ -39,6 +42,7 @@ let weapon5=document.getElementById("weapon5");
 let weapon6=document.getElementById("weapon6");
 let weapon7=document.getElementById("weapon7");
 
+/* 左下の武器の画像をクリックしたらその武器に切り替える処理 */
 weapon1.onclick=function(){
     weapon.src="images/"+weapon_png[0];
     now_make=0;
@@ -105,6 +109,8 @@ weapon7.onclick=function(){
         alert("その武器を作るには工房のランクが足りません。");
     }
 }
+
+/* 左下の作った武器の個数表示のところを取得 */
 let now_1=document.getElementById("now_1");
 let now_2=document.getElementById("now_2");
 let now_3=document.getElementById("now_3");
@@ -166,10 +172,10 @@ let buy_button_4=document.getElementById("buy_button_4");
 let sell_button=document.getElementById("sell_button");
 let weapon_sell_text=document.getElementById("weapon_sell");
 
-/*　現在の状況を表示 */
-let now_gold1=document.getElementById("now_g1");                  //右画面の、現在の所持金を出す部分
-let now_gold2=document.getElementById("now_g2");
-let all_sell=0; //合計金額
+/*　countで現在の状況を表示 */
+let now_gold1=document.getElementById("now_g1");    //右上画面の、現在の所持金を出す部分
+let now_gold2=document.getElementById("now_g2");    //右下画面の、現在の所持金を出す部分
+let all_sell=0; //作った武器の合計金額
 let count=function(){
     all_sell=quantity1*weapon_sell1+quantity2*weapon_sell2+quantity3*weapon_sell3
     +quantity4*weapon_sell4+quantity5*weapon_sell5+quantity6*weapon_sell6+quantity7*weapon_sell7;
@@ -294,10 +300,12 @@ let count=function(){
     }
 }
 
+//恒常的に行う処理
 window.addEventListener("DOMContentLoaded", function () {
     setInterval(count,100);    //0.1秒ごとに、現在の所持金と武器の個数の表示を更新
 });
 
+//工房アップグレード
 upgrade_button.addEventListener("click", function(){
     if(phase!=6){
         if(upgrade_prices[phase]<=gold){
@@ -333,6 +341,7 @@ upgrade_button.addEventListener("click", function(){
     }
 });
 
+//アイテム購入時のアラートの取得と消去の関数設定
 let item1_alert=document.getElementById("item1_alert");
 let item2_alert=document.getElementById("item2_alert");
 let item3_alert=document.getElementById("item3_alert");
@@ -451,10 +460,13 @@ buy_button_4.addEventListener("click", function(){
     }
 });
 
+//売却時のアラートの取得と消去
 let sell_alert=document.getElementById("sell_alert");
 let sell_alert_reset=function(){ 
     sell_alert.innerHTML="";
 }
+
+//売却ボタン
 sell_button.addEventListener("click",function(){
     if(all_sell!=0){
         gold+=all_sell;
