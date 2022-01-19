@@ -135,7 +135,7 @@ const upgrade_prices = new Array(9000, 90000, 900000, 9000000, 90000000, 9000000
 let upgrade_button=document.getElementById("upgrade_button");   //工房のアップグレードボタン 
 
 /*　アップグレード時のアラートメッセージを空白に*/
-let upgrade_alert_reset=function(){ 
+let upgrade_alert_reset=function(){
     upgrade_alert.innerHTML="";
 }
 
@@ -533,5 +533,4 @@ document.querySelector( ".make" ).addEventListener( "click", function( event ) {
     }, 250);
 
 
-    clickpoint.remove();
 } ) ;
